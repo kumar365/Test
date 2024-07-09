@@ -45,6 +45,7 @@ public class SwappExamples {
 		y = x - y;
 		x = x - y;
 		System.out.println("After swapping: " + x + "   " + y);
+		System.out.println();
 	}
 
 	public static void swappStringsWithTempVariable(String x, String y) {

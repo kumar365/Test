@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-public class StreamExamples {
+public class Java8_StreamExamples {
 
 	public static void main(String[] args) {
 		long count = Stream.of(1, 2, 3, 4, 5).filter(i -> i < 4).count();

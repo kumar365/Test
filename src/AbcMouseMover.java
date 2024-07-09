@@ -1,7 +1,7 @@
 import java.awt.Robot;
 import java.util.Random;
 
-public class MouseMover {
+public class AbcMouseMover {
 	public static final int FIVE_SECONDS = 5000;
 	public static final int MAX_Y = 400;
 	public static final int MAX_X = 400;

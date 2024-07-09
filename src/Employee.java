@@ -29,4 +29,9 @@ class Employee {
 		return deptId;
 	}
 
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", deptId=" + deptId + ", name=" + name + ", salary=" + salary + "]";
+	}
+
 }

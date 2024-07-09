@@ -9,7 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StreamExamplesStrings {
+public class Java8_StreamExamplesStrings {
 	public static class Notes {
 		int tagId;
 		String tagName;
@@ -105,8 +105,10 @@ public class StreamExamplesStrings {
 	public static void toUppercase() {
 		System.out.println("toUppercase:");
 		List<String> names = Arrays.asList("explained", "through", "programs");
-		List<String> nameLst = names.stream().map(String::toUpperCase).collect(Collectors.toList());
-		System.out.println(nameLst);
+		List<String> nameList = names.stream().map(String::toUpperCase).collect(Collectors.toList());
+		System.out.println(nameList);
+		List<String> nameList1 = names.stream().map(s -> s.toUpperCase()).collect(Collectors.toList());
+		System.out.println(nameList1);
 	}
 
 	public static void wordCountInList() {
@@ -129,11 +131,11 @@ public class StreamExamplesStrings {
 	// program to print the count of each character in a String
 	public static void charCountInString() {
 		System.out.println("charCountInString:");
-		String s = "string data to count each character";
-		Map<String, Long> map = Arrays.stream(s.split("")).map(String::toLowerCase)
+		String sting = "string data to count each character";
+		Map<String, Long> map = Arrays.stream(sting.split("")).map(String::toLowerCase)
 				.collect(Collectors.groupingBy(str -> str, LinkedHashMap::new, Collectors.counting()));
 		System.out.println(map);
-		Map<Object, Long> map1 = s.chars().mapToObj(c -> Character.toLowerCase(Character.valueOf((char) c)))
+		Map<Object, Long> map1 = sting.chars().mapToObj(c -> Character.toLowerCase(Character.valueOf((char) c)))
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
 		System.out.println(map1);
 	}
@@ -165,6 +167,6 @@ public class StreamExamplesStrings {
 		// sort a List of Strings by their length using Stream API
 		List<String> names = Arrays.asList("Kartik", "batra", "karan", "Rishi", "Jon");
 		names.stream().sorted((s1, s2) -> Integer.compare(s1.length(), s2.length())).forEach(System.out::println);
-		
+
 	}
 }

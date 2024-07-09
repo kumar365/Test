@@ -11,7 +11,7 @@ public class FailFastList {
 	// operation. Comparatively, Fail Safe iterator doesn't abort the operation in
 	// case of a failure.
 
-	// Fail Fast Ex :   ArrayList,          HashMap
+	// Fail Fast Ex : ArrayList, HashMap
 	// Fail Safe Ex : CopyOnWriteArrayList, ConcurrentHashMap
 
 	public static void main(String[] args) {

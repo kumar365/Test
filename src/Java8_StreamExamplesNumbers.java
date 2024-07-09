@@ -10,10 +10,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamExamplesNumbers {
+public class Java8_StreamExamplesNumbers {
 	public static void main(String args[]) {
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
-		getDate();
 		printArray(list);
 		evenNumberInList(list);
 		oddNumberInList(list);
@@ -37,17 +36,6 @@ public class StreamExamplesNumbers {
 		findingSumOfSmallestTwoNumbersInList();
 		findFirstAndLastElementInArrayList();
 		calculateStatisticsOfList();
-	}
-
-	public static void getDate() {
-		// Used LocalDate API to get the date
-		System.out.println("Current Local Date: " + java.time.LocalDate.now());
-
-		// Used LocalTime API to get the time
-		System.out.println("Current Local Time: " + java.time.LocalTime.now());
-
-		// Used LocalDateTime API to get both date and time
-		System.out.println("Current Local Date and Time: " + java.time.LocalDateTime.now());
 	}
 
 	public static void printArray(List<Integer> list) {
@@ -174,8 +162,11 @@ public class StreamExamplesNumbers {
 	public static void primeNumbersInList() {
 		System.out.println("primeNumbersInList:");
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 20);
+
+		List<Integer> primes = numbers.stream().filter(Java8_StreamExamplesNumbers::isPrime)
+				.collect(Collectors.toList());
 		// Prime number
-		System.out.println(numbers.stream().filter(StreamExamplesNumbers::isPrime).collect(Collectors.toList()));
+		System.out.println("primes =" + primes);
 	}
 
 	public static boolean isPrime(int number) {
