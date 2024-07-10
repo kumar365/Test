@@ -1,8 +1,9 @@
 //Java Generics was introduced to deal with type-safe objects. 
+
 //Advantages of Java Generics
-//1. Type-Safety: One can hold only a single type of objects in generics.
-//2. Type Casting Is Not Required: There is no need to typecast.
-//3. Compile -Time Checking: It checks all the errors of datatype related to generics at the time of compile-time so the issue will not occurat the time of runtime.
+// 1. Type-Safety: One can hold only a single type of objects in generics.
+// 2. Type Casting Is Not Required: There is no need to typecast.
+// 3. Compile -Time Checking: It checks all the errors of datatype related to generics at the time of compile-time so the issue will not occurat the time of runtime.
 public class ExampleGeneric {
 	public static void main(String[] args) {
 		// Object of generic class Area with parameter Type
