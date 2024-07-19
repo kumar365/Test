@@ -12,12 +12,16 @@ import java.util.stream.Stream;
 public class Java8_StreamExamples {
 
 	public static void main(String[] args) {
+		// count() method to count number of items in list after applying condition
+		// number < 4
 		long count = Stream.of(1, 2, 3, 4, 5).filter(i -> i < 4).count();
 		System.out.println("Count of numbers < 4 : " + count);
 
+		// count() method to count number of items in list
 		long countFull = Stream.of(1, 2, 3, 4, 5).count();
 		System.out.println("Count of numbers : " + countFull);
 
+		// distinct() method to get distinct/unique numbers in list
 		Stream<Integer> distinctIntegers = Stream.of(1, 1, 2, 3, 3, 4, 5).distinct();
 		distinctIntegers.forEach(System.out::print);
 		System.out.println();
