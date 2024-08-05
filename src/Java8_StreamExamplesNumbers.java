@@ -17,14 +17,22 @@ public class Java8_StreamExamplesNumbers {
 		evenNumberInList(list);
 		oddNumberInList(list);
 		numberStartingWithOneInList(list);
+		removeDuplicateElementsInList();
 		duplicateElementsInList();
 		findFirstElement();
 		findTheTotalNumberOfElements();
+		findMinElement();
 		findMaxElement();
+		
+		int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		findMinElementAsInt(arr);
+		findMaxElementAsInt(arr);
+		
 		sortValuesInList();
 		sortDescending();
 		cubeOnList();
 		sortArrayTOStream();
+		System.out.println();
 		concatStreamsOfInteger();
 		primeNumbersInList();
 		sumOffIntigersOfList();
@@ -41,70 +49,110 @@ public class Java8_StreamExamplesNumbers {
 	public static void printArray(List<Integer> list) {
 		System.out.println("Main list using toString():" + list.toString());
 		System.out.println("Main list using Arrays class:" + Arrays.toString(list.toArray()));
+		System.out.println();
 	}
 
 	public static void evenNumberInList(List<Integer> list) {
 		System.out.println("EvenNumberInList:");
-		list.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
+		list.stream().filter(n -> n % 2 == 0).forEach(i -> System.out.print(i + " "));
+		System.out.println();
 	}
 
 	public static void oddNumberInList(List<Integer> list) {
 		System.out.println("OddNumberInList:");
-		list.stream().filter(n -> n % 2 == 1).forEach(System.out::println);
+		list.stream().filter(n -> n % 2 == 1).forEach(i -> System.out.print(i + " "));
+		System.out.println();
 	}
 
 	public static void numberStartingWithOneInList(List<Integer> list) {
-		System.out.println("NumberStartingWithOne:");
+		System.out.println("Number Starting With One:");
 		list.stream().map(s -> s + "") // Convert integer to String
-				.filter(s -> s.startsWith("1")).forEach(System.out::println);
+				.filter(s -> s.startsWith("1")).forEach(n -> System.out.print(n + " "));
+		System.out.println();
+	}
+
+	public static void removeDuplicateElementsInList() {
+		System.out.println("Duplicate Elements In List removed:");
+		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+		Set<Integer> set = new HashSet<Integer>();
+		list.stream().filter(n -> set.add(n)).forEach(n -> System.out.print(n + " "));
+		System.out.println();
 	}
 
 	public static void duplicateElementsInList() {
 		System.out.println("DuplicateElementsInList:");
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
 		Set<Integer> set = new HashSet<Integer>();
-		list.stream().filter(n -> !set.add(n)).forEach(System.out::println);
+		list.stream().filter(n -> !set.add(n)).forEach(n -> System.out.print(n + " "));
+		System.out.println();
 	}
 
 	public static void findFirstElement() {
-		System.out.println("FindFirstElement:");
+		System.out.println("Find First Element in list ::");
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
-		list.stream().findFirst().ifPresent(System.out::println);
-		System.out.println("FirstElement:" + list.get(0));
+		list.stream().findFirst().ifPresent(System.out::print);
+		System.out.println("First Element in list using findFirst():: " + list.get(0));
+		System.out.println();
 	}
 
 	public static void findTheTotalNumberOfElements() {
-		System.out.println("findTheTotalNumberOfElements:");
+		System.out.println("Find The Total Number Of Elements:");
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
 		System.out.println("Using count::" + list.stream().count());
 		System.out.println("Using size::" + list.size());
+		System.out.println();
+	}
+
+	public static void findMinElement() {
+		System.out.println("Find Min Element:");
+		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+		int min = list.stream().min(Integer::compare).get();
+		System.out.println("Using min::" + min);
+		Collections.sort(list);
+		System.out.println("Using sort::" + list.get(0));
+		System.out.println();
 	}
 
 	public static void findMaxElement() {
-		System.out.println("findMaxElement:");
+		System.out.println("Find Max Element:");
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
 		int max = list.stream().max(Integer::compare).get();
 		System.out.println("Using max::" + max);
 		Collections.sort(list);
 		System.out.println("Using sort::" + list.get(list.size() - 1));
+		System.out.println();
+	}
+
+	// find the Maximum element in an array
+	public static int findMinElementAsInt(int[] arr) {
+		System.out.println("Find min Element:");
+		return Arrays.stream(arr).min().getAsInt();
+	}
+
+	// find the Maximum element in an array
+	public static int findMaxElementAsInt(int[] arr) {
+		System.out.println("Find max Element:");
+		return Arrays.stream(arr).max().getAsInt();
 	}
 
 	public static void sortValuesInList() {
-		System.out.println("sortValuesInList:");
+		System.out.println("Sort Values In List:");
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
-		list.stream().sorted().forEach(System.out::println);
+		list.stream().sorted().forEach(n -> System.out.print(n + " "));
 		Collections.sort(list);
-		System.out.println("Using sort::" + list.toString());
+		System.out.println("Using sort:: " + list.toString());
+		System.out.println();
 	}
 
 	public static void sortDescending() {
-		System.out.println("sortDescending:");
+		System.out.println("Sort Values In List Descending:");
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
-		list.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
+		list.stream().sorted(Collections.reverseOrder()).forEach(n -> System.out.print(n + " "));
+		System.out.println();
 	}
 
 	public static boolean containsDuplicate(int[] nums) {
-		System.out.println("containsDuplicate:");
+		System.out.println("Array Contains Duplicate:");
 		List<Integer> list = Arrays.stream(nums).boxed().collect(Collectors.toList());
 		Set<Integer> set = new HashSet<>(list);
 		if (set.size() == list.size()) {
@@ -115,31 +163,27 @@ public class Java8_StreamExamplesNumbers {
 
 	// Method to perform cube on list and filter numbers greater than 50
 	public static void cubeOnList() {
-		System.out.println("cubeOnList:");
+		System.out.println("cube the element  On List:");
 		List<Integer> list = Arrays.asList(4, 5, 6, 7, 1, 2, 3);
-		list.stream().map(i -> i * i * i).filter(i -> i > 50).forEach(System.out::println);
+		list.stream().map(i -> i * i * i).filter(i -> i > 50).forEach(n -> System.out.print(n + " "));
+		System.out.println();
 	}
 
 	// program to sort an array and then convert the sorted array into Stream
 	public static void sortArrayTOStream() {
-		System.out.println("sortArrayTOStream:");
+		System.out.println("sort Arrays Example:");
+		System.out.println("Sorted the Array using parallelSort()::");
 		int arr[] = { 99, 55, 203, 99, 4, 91 };
 		Arrays.parallelSort(arr);// Sorted the Array using parallelSort()
 		Arrays.stream(arr).forEach(n -> System.out.print(n + " "));
 
-		// or
+		System.out.println("Sorted the Array using streams sorted()::");
 		Arrays.stream(arr).sorted().forEach(n -> System.out.print(n + " "));
-
-	}
-
-	// find the Maximum element in an array
-	public static int findMaxElement(int[] arr) {
-		System.out.println("findMaxElement:");
-		return Arrays.stream(arr).max().getAsInt();
+		System.out.println();
 	}
 
 	public static void concatStreamsOfInteger() {
-		System.out.println("concatStreamsOfInteger:");
+		System.out.println("concat Streams Of Integer:");
 		List<Integer> list1 = Arrays.asList(1, 2, 4);
 		List<Integer> list2 = Arrays.asList(1, 2, 3);
 

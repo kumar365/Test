@@ -1,4 +1,8 @@
 
+// Make a constructor private.
+// Write a static method that has the return type object of this singleton class. 
+// Here, the concept of Lazy initialization is used to write this static method.
+
 // Java code to create singleton class by  Eager Initialization
 public class ExampleSingleton1 {
 

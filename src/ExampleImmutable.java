@@ -31,16 +31,16 @@ public class ExampleImmutable {
 		// executing the print statement over them
 		System.out.println(s.getName());
 		System.out.println(s.getRegNo());
-		System.out.println("Before altering list:: " + s.getAddress());
+		System.out.println("Before altering list:: " + s.getAddresses());
 		System.out.println("Before altering map:: " + s.getMetadata());
 
 		// Uncommenting below line causes error
 		// s.regNo = 102;
 
 		address.add("Hyd North");
-		System.out.println("After altering list:: " + s.getAddress());
-		s.getAddress().add("Hyd South");
-		System.out.println("After altering list:: " + s.getAddress());
+		System.out.println("After altering list:: " + s.getAddresses());
+		s.getAddresses().add("Hyd South");
+		System.out.println("After altering list:: " + s.getAddresses());
 
 		map.put("3", "third");
 
@@ -58,23 +58,23 @@ final class Student {
 	// Member attributes of final class
 	private final String name;
 	private final int regNo;
-	private final List<String> address;
+	private final List<String> addresses;
 	private final Map<String, String> metadata;
 
 	// Constructor of immutable class Parameterized constructor
-	public Student(String name, int regNo, List<String> address, Map<String, String> metadata) {
+	public Student(String name, int regNo, List<String> addresses, Map<String, String> metadata) {
 
 		// This keyword refers to current instance itself
 		this.name = name;
 		this.regNo = regNo;
 
-		List<String> tempAddress = new ArrayList<String>();// deep copy
+		List<String> tempAddresses = new ArrayList<String>();// deep copy
 
-		for (String string : address) {
-			tempAddress.add(string);// deep copy
+		for (String string : addresses) {
+			tempAddresses.add(string);// deep copy
 		}
 
-		this.address = tempAddress;
+		this.addresses = tempAddresses;
 
 		// Creating Map object with reference to HashMap Declaring object of string type
 		Map<String, String> tempMap = new HashMap<>(); // deep copy
@@ -100,10 +100,10 @@ final class Student {
 	// Note that there should not be any setters
 
 	// Method 3
-	public List<String> getAddress() {
+	public List<String> getAddresses() {
 		List<String> tempAddress = new ArrayList<String>();// deep copy
 
-		for (String string : this.address) {
+		for (String string : this.addresses) {
 			tempAddress.add(string);// deep copy
 		}
 		return tempAddress;

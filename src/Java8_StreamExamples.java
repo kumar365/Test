@@ -1,12 +1,13 @@
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.Collections;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Java8_StreamExamples {
@@ -42,9 +43,26 @@ public class Java8_StreamExamples {
 		System.out.println("Lowest number in List : " + stats.getMin());
 		System.out.println("Sum of numbers in List : " + stats.getSum());
 
-		List<String> names = Arrays.asList("abc", "xyz", "def", "klm");
-		sortUsingJava8(names);
+		List<String> names = Arrays.asList("abc", "xyz", "def", "klm", null, null);
 		names.stream().forEach(System.out::println);
+
+		System.out.println("printing only not null values");
+		// here it s filtering only not null values
+		//names.stream().filter(Objects::nonNull).map(String::toUpperCase).forEach(System.out::println);
+		names.stream().filter(i -> i != null).map(String::toUpperCase).forEach(System.out::println);
+
+		System.out.println("printing only  null values");
+		// here it s filtering only null values
+		names.stream().filter(Objects::isNull).forEach(System.out::println);
+		//names.stream().filter(i -> i == null).forEach(System.out::println);
+
+		System.out.println("Sorted list");
+		List<String> names1 = Arrays.asList("abc", "xyz", "def", "klm");
+		// Collections.sort(names1, (s1, s2) -> s1.compareTo(s2));
+		// names1.sort((s1, s2) -> s1.compareTo(s2));
+		names1 = names1.stream().sorted().collect(Collectors.toList());
+		names1.stream().forEach(System.out::println);
+
 		String data = "kumar";
 		String encoded = Base64.getEncoder().encodeToString(data.getBytes());
 		System.out.println("encoded : " + encoded);
@@ -67,17 +85,33 @@ public class Java8_StreamExamples {
 		// sum integers in a List using reduce() operator.
 		List<Integer> numberList = Arrays.asList(5, 3, 7, 10);
 		int sum = numberList.stream().reduce(0, (a, b) -> a + b);
-		System.out.println(sum); // prints 25
-		names.stream().filter(Objects::nonNull) // here it s filtering only not null values
-				.map(String::toUpperCase).forEach(System.out::println);
-		names.stream().filter(Objects::isNull) // here it s filtering only null values
-				.map(String::toUpperCase).forEach(System.out::println);
-		Stream.of(1, 1, 3, 2, 4, 3).peek(System.out::print).limit(3).distinct().forEach(System.out::print);
+		System.out.println("sum integers in a List using reduce():: " + sum); // prints 25
 
-	}
+		// multiplay integers in a List using reduce() operator.
+		int multiplayResult = numberList.stream().reduce(1, (a, b) -> a * b); // 1*5 , 3*5, 7 * 15, 10* 105
+		System.out.println("multiplay integers in a List using reduce():: " + multiplayResult); // prints 1050
+		
+		System.out.println("print list using streams::");
+		Stream.of(1, 1, 3, 2, 4, 3).forEach(System.out::print);
+		System.out.println();
+		
+		System.out.println("use distinct on streams::");
+		Stream.of(1, 1, 3, 2, 4, 3).distinct().forEach(System.out::print);
+		System.out.println();
+		
+		System.out.println("use Collectors.toSet() on streams::");
+		Set<Integer> set= Stream.of(1, 1, 3, 2, 4, 3).collect(Collectors.toSet());
+		System.out.println("set:: "+set);
+		
+		System.out.println("use limit and dixtinct on streams::");
+		Stream.of(1, 1, 3, 2, 4, 3).limit(3).distinct().forEach(System.out::print);
+		System.out.println();
+		
+		System.out.println("peek to log stream process::");
+		List<?> list =Stream.of(1, 1, 3, 2, 4, 3).limit(3).distinct().peek(System.out::print).collect(Collectors.toList());
+		System.out.println();
+		System.out.println(list);
 
-	private static void sortUsingJava8(List<String> names) {
-		Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
 	}
 
 }

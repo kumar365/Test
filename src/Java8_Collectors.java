@@ -23,9 +23,17 @@ public class Java8_Collectors {
 		int total = employees.stream().collect(Collectors.summingInt(Employee::getSalary));
 		System.out.println("Total Employees Salary total using summingInt ::  " + total);
 
+		// Using Collectors summingInt() method to sum all Employee salaries
+		int total1 = employees.stream().collect(Collectors.summingInt(e -> e.getSalary()));
+		System.out.println("Total Employees Salary total1 using summingInt ::  " + total1);
+
 		// Using streams mapToInt() with sum() method
-		int sum = employees.stream().mapToInt(x -> x.getSalary()).sum();
+		int sum = employees.stream().mapToInt(e -> e.getSalary()).sum();
 		System.out.println("Total Employees Salary total using sum :: " + sum);
+
+		// Using streams mapToInt() with sum() method
+		int sum1 = employees.stream().mapToInt(Employee::getSalary).sum();
+		System.out.println("Total Employees Salary total using sum1 :: " + sum1);
 
 		// Using Collectors summingInt() method to sum all Employee salaries
 		Double average = employees.stream().collect(Collectors.averagingInt(Employee::getSalary));

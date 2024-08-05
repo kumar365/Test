@@ -1,30 +1,25 @@
 
 public class ExampleRemoveLeadingZeros1 {
-	// Method 1 to Remove leading zeros in a string
+	// Method to Remove leading zeros in a string
 	public static String removeZero(String str) {
 
-		// Count leading zeros
-		// Initially setting loop counter to 0
+		// Count leading zeros Initially setting loop counter to 0
 		int i = 0;
 
 		while (i < str.length() && str.charAt(i) == '0') {
 			i++;
 		}
 
-		// Converting string into StringBuffer object
-		// as strings are immutable
+		// Converting string into StringBuffer object as strings are immutable
 		StringBuffer sb = new StringBuffer(str);
 
-		// The StringBuffer replace function removes
-		// i characters from given index (0 here)
-		sb.replace(0, i, "");
+		// The StringBuffer replace function removes i characters from given index
+		sb.replace(0, i, "");// int startIndex, int endIndex, string to replace
 
 		// Returning string after removing zeros
 		return sb.toString();
 	}
 
-	// Method 2
-	// Main driver method
 	public static void main(String[] args) {
 
 		// Sample string input

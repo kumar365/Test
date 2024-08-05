@@ -1,5 +1,5 @@
 //Abstract class with 50% abstraction 1 concrete method and 1 abstract method
-public class ExampleAbstract2 {
+public class ExampleAbstractWith50PerAbstraction {
 	public static void main(String[] args) {
 		// Vehical myVehical = new Vehical();//Cannot instantiate the type Vehical
 		Vehical myVehical = new Car(); // Create a Car object
@@ -21,6 +21,7 @@ abstract class Vehical {
 //Subclass (inherit from Vehical)
 class Car extends Vehical {
 	// Override method
+	@Override
 	public void vehicalSound() {
 		System.out.println("From Car class The car says: I am here");
 	}

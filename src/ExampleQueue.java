@@ -1,6 +1,10 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
+//Queue Interface In Java
+//Being an interface the queue needs a concrete class for the declaration and 
+//the most common classes are the PriorityQueue and LinkedList in Java. Note that neither of these implementations is thread-safe.
+// PriorityBlockingQueue is one alternative implementation if the thread-safe implementation is needed.
 public class ExampleQueue {
 	public static void main(String[] args) {
 		Queue<String> queue = new LinkedList<>();

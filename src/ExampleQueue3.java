@@ -1,6 +1,7 @@
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 
+//PriorityBlockingQueue is an implementation of Queue which is the thread-safe.
 public class ExampleQueue3 {
 	public static void main(String[] args) {
 		// Creating empty priority blocking queue

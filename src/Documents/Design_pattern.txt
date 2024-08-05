@@ -57,9 +57,11 @@ Significance of Classloader in Singleton Pattern:
 
 
 Significance of Serialization in Singleton Pattern
-If singleton class is Serializable, you can serialize the singleton instance. Once it is serialized, you can deserialize it but it will not return the singleton object.
+If singleton class is Serializable, you can serialize the singleton instance. Once it is serialized, 
+you can deserialize it but it will not return the singleton object.
 
-To resolve this issue, you need to override the readResolve() method that enforces the singleton. It is called just after the object is deserialized. It returns the singleton object.
+To resolve this issue, you need to override the readResolve() method that enforces the singleton.
+ It is called just after the object is deserialized. It returns the singleton object.
 
 public class A implements Serializable {  
         //your code of singleton  
@@ -68,4 +70,29 @@ public class A implements Serializable {
         }  
   
     }  
+    
+Multiple ClassLoaders are commonly encountered in Java EE. 
+The Java EE application servers loads classes from deployed War/EAR by a tree of classloaders. 
+The reason why they do it in this way is to isolate one application from other applications but still sharing classes 
+between deployed modules. If you want your class to be truly singleton then you need to make sure that same classloader 
+loads your singleton. You can achieve it like this
+
+private static Class getClass(String clazz) throws ClassNotFoundException {
+      ClassLoader loader = Thread.currentThread().getContextClassLoader();
+      if(loader == null)
+         loader = YourSingleton.class.getClassLoader();
+      return (loader.loadClass(clazz));
+   }
+}
+Note Enum in java already implement singleton pattern.
+
+Updated Can you please explain what is multiple class Loader and how it resolve the issue.
+
+Let say you have a library Foo. Some part of your project requires Foo_version1.jar and some other part requires Foo_version2.jar.
+ So in your classpath you have Foo_version1.jar and Foo_version2.jar. Now the class loader need to load a class Bar from Foo,
+ it will load it from first Foo_versionX that it finds on the classpath. In order to resolve this issue you need another class 
+ loader because remember that some part of your project require Bar class from different jar then the one loaded by classloader.
+
+By using the code mentioned above you are making sure that if more than 1 classloader try to load your class then always 
+the same instance will be used.    
 

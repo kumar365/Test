@@ -1,5 +1,5 @@
 //Abstract class with 100% abstraction no concrete method and 2 abstract methods
-public class ExampleAbstract3 {
+public class ExampleAbstractWith100PerAbstraction {
 	public static void main(String[] args) {
 		// Color myColor = new Color();//Cannot instantiate the type Color
 		Color myColor = new Red(); // Create a Red object
