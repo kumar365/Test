@@ -14,7 +14,7 @@ The advantages of Spring Boot are listed below:
 2)Spring Boot is nothing but an existing framework with the addition of an embedded HTTP server and annotation configuration which makes it easier to understand and faster the process of development.
 3)Increases productivity and reduces development time.
 4)Minimum configuration.
-5)We don’t need to write any XML configuration, only a few annotations are required to do the configuration.
+5)We don't need to write any XML configuration, only a few annotations are required to do the configuration.
 
 2. What are the Spring Boot key components?
 Below are the four key components of spring-boot:
@@ -24,7 +24,7 @@ Below are the four key components of spring-boot:
 4)Spring Boot Actuators.
 
 3. Why Spring Boot over Spring?
-Below are some key points which spring boot offers but spring doesn’t:
+Below are some key points which spring boot offers but spring doesn't:
 1)Starter POM.
 2)Version Management.
 3)Auto Configuration.
@@ -89,7 +89,7 @@ Spring Initializer is a web application that helps you to create an initial spri
 11. What is Spring Boot CLI and what are its benefits?
 Spring Boot CLI is a command-line interface that allows you to create a spring-based java application using Groovy.
 
-Example: You don’t need to create getter and setter method or access modifier, return statement. If you use the JDBC template, it automatically loads for you.
+Example: You don't need to create getter and setter method or access modifier, return statement. If you use the JDBC template, it automatically loads for you.
 
 12. What are the most common Spring Boot CLI commands?
 -run, -test, -grap, -jar, -war, -install, -uninstall, --init, -shell, -help.
@@ -103,9 +103,9 @@ Advanced Spring Boot Questions
 The primary annotations that Spring Boot offers reside in its org.springframework.boot.autoconfigure and its sub-packages. 
 Here are a couple of basic ones:
 
-@EnableAutoConfiguration – to make Spring Boot look for auto-configuration beans on its classpath and automatically apply them.
+@EnableAutoConfiguration â€“ to make Spring Boot look for auto-configuration beans on its classpath and automatically apply them.
 
-@SpringBootApplication – used to denote the main class of a Boot Application. 
+@SpringBootApplication â€“ used to denote the main class of a Boot Application. 
 This annotation combines @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes.
 
 14. What is Spring Boot dependency management?
@@ -163,7 +163,7 @@ These actuators include auditing, health, CPU usage, HTTP hits, and metric gathe
 applied to your application.
 
 27. How to enable Actuator in Spring boot application?
-To enable the spring actuator feature, we need to add the dependency of “spring-boot-starter-actuator” in pom.xml.
+To enable the spring actuator feature, we need to add the dependency of â€œspring-boot-starter-actuatorâ€� in pom.xml.
 
 <dependency>
 <groupId> org.springframework.boot</groupId>
@@ -182,10 +182,10 @@ Actuators provide below pre-defined endpoints to monitor our application -
 8)Threaddump
 9)Shutdown
 29. How to get the list of all the beans in your Spring boot application?
-Spring Boot actuator “/Beans” is used to get the list of all the spring beans in your application.
+Spring Boot actuator â€œ/Beansâ€� is used to get the list of all the spring beans in your application.
 
 30. How to check the environment properties in your Spring boot application?
-Spring Boot actuator “/env” returns the list of all the environment properties of running the spring boot application.
+Spring Boot actuator â€œ/envâ€� returns the list of all the environment properties of running the spring boot application.
 
 31. How to enable debugging log in the spring boot application?
 Debugging logs can be enabled in three ways -
@@ -197,7 +197,7 @@ Debugging logs can be enabled in three ways -
 32. Where do we define properties in the Spring Boot application?
 You can define both application and Spring boot-related properties into a file called application.properties. 
 You can create this file manually or use Spring Initializer to create this file. 
-You don’t need to do any special configuration to instruct Spring Boot to load this file, 
+You don't need to do any special configuration to instruct Spring Boot to load this file, 
 If it exists in classpath then spring boot automatically loads it and configure itself and the application code accordingly.
 
 33. What is dependency Injection?

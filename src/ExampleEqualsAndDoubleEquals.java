@@ -1,5 +1,5 @@
 
-public class EqualsAndDoubleEquals {
+public class ExampleEqualsAndDoubleEquals {
 
 	public static void main(String[] args) {
 		equalsAndDoubleEqualsCheck();

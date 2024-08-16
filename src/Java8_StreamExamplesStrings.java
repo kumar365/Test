@@ -140,8 +140,7 @@ public class Java8_StreamExamplesStrings {
 		System.out.println(map1);
 	}
 
-	// convert a List of objects into a Map by considering duplicated keys and
-	// store them in sorted order
+	// convert a List of objects into a Map by considering duplicated keys and store them in sorted order
 	public static void mapWithDuplicatedKeys() {
 		System.out.println("map With Duplicated Keys:");
 		List<Notes> noteLst = new ArrayList<>();

@@ -6,8 +6,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 
 // Atomic variables are used when atomic operations on primitive data types are required, such as incrementing or decrementing a counter.
-// Volatile variables are used when multiple threads need to access and modify a variable's value concurrently, 
-// and immediate visibility of changes is required.
+// Volatile variables are used when multiple threads need to access and modify a variable's value concurrently, and immediate visibility of changes is required.
 
 //creating a thread by extending a thread class
 class myThread extends Thread {
