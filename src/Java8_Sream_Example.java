@@ -2,7 +2,7 @@ import java.util.stream.*;
 import java.util.*;
 import java.util.function.Function;
 
-public class TestResults {
+public class Java8_Sream_Example {
 	public static class Student {
 		private String name;
 		private int score;
@@ -24,6 +24,8 @@ public class TestResults {
 	public static List<String> studentsThatPass(Stream<Student> students, int passingScore) {
 		List<String> list = students.filter(n -> n.getScore() > passingScore).map(n -> n.name)
 				.sorted(Collections.reverseOrder()).collect(Collectors.toList());
+//		List<String> list = students.filter(n -> n.getScore() > passingScore).map(n -> n.name)
+//				.sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 		return list;
 	}
 
@@ -41,8 +43,8 @@ public class TestResults {
 		// String s = "Hellow world Preadeep kumar";
 		System.out.println("Enter any string::");
 		Scanner scanner = new Scanner(System.in);
-		String s = scanner.next();
-		Map<Character, Long> map = s.chars().mapToObj(c -> Character.toLowerCase(Character.valueOf((char) c)))
+		String string = scanner.next();
+		Map<Character, Long> map = string.chars().mapToObj(c -> Character.toLowerCase(Character.valueOf((char) c)))
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
 		System.out.println(map);
 	}

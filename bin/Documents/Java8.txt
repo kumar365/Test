@@ -1,0 +1,499 @@
+Java8 features
+
+==================================================
+
+https://www.javatpoint.com/java-lambda-expressions 
+
+
+------------------------------------------
+
+https://www.javatpoint.com/java-8-features
+
+------------------------------------------
+
+Java 8 Features:
+
+----------------------
+
+Java 8 provides following features for Java Programming:
+
+1)  Lambda expressions and Functional interfaces
+
+2)  Method references
+
+3)  Optional class
+
+4)  Default and Static methods in Interfaces
+
+5)  Stream API for Bulk Data Operations on Collections
+
+6)  Base64 Encode Decode
+
+7)  Java Time API
+
+8)  Collectors class
+
+9)  ForEach() method in Iterable interface
+
+10) Collection API improvements
+
+11) Nashorn JavaScript Engine
+
+12) Parallel Array Sorting
+
+
+Different Operations On Streams-
+Intermediate Operations:
+
+map: The map method is used to returns a stream consisting of the results of applying the given function to the elements of this stream.
+List number = Arrays.asList(2,3,4,5);
+List square = number.stream().map(x->x*x).collect(Collectors.toList());
+filter: The filter method is used to select elements as per the Predicate passed as argument.
+List names = Arrays.asList("Reflection","Collection","Stream");
+List result = names.stream().filter(s->s.startsWith("S")).collect(Collectors.toList());
+sorted: The sorted method is used to sort the stream.
+List names = Arrays.asList("Reflection","Collection","Stream");
+List result = names.stream().sorted().collect(Collectors.toList());
+Terminal Operations:
+
+collect: The collect method is used to return the result of the intermediate operations performed on the stream.
+List number = Arrays.asList(2,3,4,5,3);
+Set square = number.stream().map(x->x*x).collect(Collectors.toSet());
+forEach: The forEach method is used to iterate through every element of the stream.
+List number = Arrays.asList(2,3,4,5);
+number.stream().map(x->x*x).forEach(y->System.out.println(y));
+reduce: The reduce method is used to reduce the elements of a stream to a single value.
+The reduce method takes a BinaryOperator as a parameter.
+List number = Arrays.asList(2,3,4,5);
+int even = number.stream().filter(x->x%2==0).reduce(0,(ans,i)-> ans+i);
+
+H
+
+13) Type and Repating Annotations
+
+14) Java IO improvements
+
+15) Concurrency API improvements
+
+16) JDBC Enhancements etc.
+
+ 
+
+1) Lambda expressions and Functional interfaces:
+
+-------------------------------------------------
+
+Lambda expression:  
+
+------------------
+
+1)Lambda Expression is an anonymous function which accepts a set of input parameters and returns results.
+
+2)Lambda Expression is a block of code without any name, with or without parameters and with or without results. This block of code is executed on demand
+
+ 
+
+Syntax: (argument-list) -> {body}
+
+(arguments) followed by Lambda Arrow Operator (->) followed by Lambda Expression Body
+
+(arguments)-> single line expression
+
+ (arguments)-> {multiple lines}
+
+ 
+
+Java lambda expression is consisted of three components.
+
+1) Argument-list: It can be empty or non-empty as well.
+
+2) Arrow-token: It is used to link arguments-list and body of expression.
+
+3) Body: It contains expressions and statements for lambda expression.
+
+ 
+
+Functional Interface:
+
+----------------------
+
+An interface which has only one abstract method is called functional interface.
+
+Functional Interface is also know as "SAM Interface" because it contains only one abstract method.
+
+SAM Interface stands for "Single Abstract Method Interface". Java SE 8 API has defined many Functional Interfaces.
+
+Java provides an anotation @FunctionalInterface, which is used to declare an interface as functional interface.
+
+ 
+
+The Lambda expression is used to provide the implementation of an interface which has functional interface.
+
+Example:
+
+--------
+
+@FunctionalInterface
+
+interface Drawable{ 
+
+     public void draw(); 
+
+ } 
+
+ public class LambdaExpressionExample { 
+
+    public static void main(String[] args) { 
+
+        int width=10; 
+
+  
+
+        //without lambda, Drawable implementation using anonymous class 
+
+        Drawable d=new Drawable(){ 
+
+            public void draw(){System.out.println("Drawing "+width);} 
+
+        }; 
+
+        d.draw();
+
+                               
+
+        //with lambda 
+
+        Drawable d2=()->{ 
+
+            System.out.println("Drawing "+width); 
+
+        }; 
+
+        d2.draw();                  
+
+    } 
+
+ }
+
+ Why use Lambda Expression:
+
+1)To provide the implementation of Functional interface.
+
+2)Less coding.
+
+ 
+
+2) Method References:(::)
+
+---------------------
+
+Method reference is used to refer method of functional interface.
+
+ It is compact and easy form of lambda expression. Each time when
+
+ you are using lambda expression to just referring a method,
+
+you can replace your lambda expression with method reference.
+
+
+ There are following types of method references in java:
+
+1)Reference to a static method.
+
+Syntax:  ContainingClass::staticMethodName
+
+ 2)Reference to an instance method.
+
+Syntax:  containingObject::instanceMethodName
+
+ 3)Reference to a constructor.
+
+Syntax:   ClassName::new
+
+ 
+
+3) Optional class
+
+Optional:
+
+---------
+
+Optional is a final Class introduced as part of Java SE 8. It is defined in java.util package.
+
+ 
+
+It is used to represent optional values that is either exist or not exist. It can contain either one value or zero value.
+If it contains a value, we can get it. Otherwise, we get nothing.
+
+It is a bounded collection that is it contains at most one element only. It is an alternative to null value.
+
+ 
+
+Main Advantage of Optional is:
+
+It is used to avoid null checks.
+
+It is used to avoid â€œNullPointerExceptionâ€�.
+
+ 
+
+4)  Default and Static methods in Interfaces
+
+5)  Stream API for Bulk Data Operations on Collections
+
+What is Stream?
+
+Stream represents a sequence of objects from a source, which supports aggregate operations.
+
+ Following are the characteristics of a Stream -
+
+Sequence of elements - A stream provides a set of elements of specific type in a sequential manner. A stream gets/computes elements on demand. It never stores the elements.
+
+Source - Stream takes Collections, Arrays, or I/O resources as input source.
+
+Aggregate operations - Stream supports aggregate operations like filter, map, limit, reduce, find, match, and so on.
+
+Pipelining - Most of the stream operations return stream itself so that their result can be pipelined. These operations are called intermediate operations and their function is to take input, process them, and return output to the target. collect() method is a terminal operation which is normally present at the end of the pipelining operation to mark the end of the stream.
+
+Automatic iterations - Stream operations do the iterations internally over the source elements provided, in contrast to Collections where explicit iteration is required.
+
+6)  Base64 Encode Decode
+
+7)  Java Time API
+
+8)  Collectors class
+
+9)  ForEach() method in Iterable interface
+
+10) Collection API improvements
+
+11) Nashorn JavaScript Engine
+
+12) Parallel Array Sorting
+
+13) Type and Repating Annotations
+
+14) Java IO improvements
+
+15) Concurrency API improvements
+
+16) JDBC Enhancements etc.
+
+ 
+
+2) Is is possible to define our own Functional Interface? What is @FunctionalInterface? What are the rules to define a Functional Interface?
+
+Yes, it is possible to define our own Functional Interfaces.
+
+We use Java SE 8â€™s @FunctionalInterface annotation to mark an interface as Functional Interface.
+
+
+ We need to follow these rules to define a Functional Interface:
+
+1) Define an interface with one and only one abstract method.
+
+2) We cannot define more than one abstract method.
+
+3) Use @FunctionalInterface annotation in interface definition.
+
+4) We can define any number of other methods like Default methods, Static methods.
+
+5) If we override java.lang.Object classâ€™s method as an abstract method, which does not count as an abstract method.
+
+ 
+
+3) When do we go for Java 8 Stream API? Why do we need to use Java 8 Stream API in our projects?
+
+1) When our Java project wants to perform the following operations, itâ€™s better to use Java 8 Stream API to get lot of benefits:
+
+2) When we want perform Database like Operations. For instance, we want perform groupby operation, orderby operation etc.
+
+3) When want to Perform operations Lazily.
+
+4) When we want to write Functional Style programming.
+
+5) When we want to perform Parallel Operations.
+
+6) When want to use Internal Iteration
+
+7) When we want to perform Pipelining operations.
+
+8) When we want to achieve better performance.
+
+ 
+
+Given below is the list of interfaces in Java8.
+
+Sr.No.  Interface & Description
+
+1) BiConsumer<T,U>
+
+Represents an operation that accepts two input arguments, and returns no result.
+
+2) BiFunction<T,U,R>
+
+Represents a function that accepts two arguments and produces a result.
+
+3) BinaryOperator<T>
+
+Represents an operation upon two operands of the same type, producing a result of the same type as the operands.
+
+4) BiPredicate<T,U>
+
+Represents a predicate (Boolean-valued function) of two arguments.
+
+5) BooleanSupplier
+
+Represents a supplier of Boolean-valued results.
+
+6) Consumer<T>
+
+Represents an operation that accepts a single input argument and returns no result.
+
+7) DoubleBinaryOperator
+
+Represents an operation upon two double-valued operands and producing a double-valued result.
+
+8) DoubleConsumer
+
+Represents an operation that accepts a single double-valued argument and returns no result.
+
+9) DoubleFunction<R>
+
+Represents a function that accepts a double-valued argument and produces a result.
+
+10) DoublePredicate
+
+Represents a predicate (Boolean-valued function) of one double-valued argument.
+
+11) DoubleSupplier
+
+Represents a supplier of double-valued results.
+
+12) DoubleToIntFunction
+
+Represents a function that accepts a double-valued argument and produces an int-valued result.
+
+13) DoubleToLongFunction
+
+Represents a function that accepts a double-valued argument and produces a long-valued result.
+
+14) DoubleUnaryOperator
+
+Represents an operation on a single double-valued operand that produces a double-valued result.
+
+15) Function<T,R>
+
+Represents a function that accepts one argument and produces a result.
+
+16) IntBinaryOperator
+
+Represents an operation upon two int-valued operands and produces an int-valued result.
+
+17) IntConsumer
+
+Represents an operation that accepts a single int-valued argument and returns no result.
+
+18) IntFunction<R>
+
+Represents a function that accepts an int-valued argument and produces a result.
+
+19) IntPredicate
+
+Represents a predicate (Boolean-valued function) of one int-valued argument.
+
+20) IntSupplier
+
+Represents a supplier of int-valued results.
+
+21) IntToDoubleFunction
+
+Represents a function that accepts an int-valued argument and produces a double-valued result.
+
+22) IntToLongFunction
+
+Represents a function that accepts an int-valued argument and produces a long-valued result.
+
+23) IntUnaryOperator
+
+Represents an operation on a single int-valued operand that produces an int-valued result.
+
+24) LongBinaryOperator
+
+Represents an operation upon two long-valued operands and produces a long-valued result.
+
+25) LongConsumer
+
+Represents an operation that accepts a single long-valued argument and returns no result.
+
+26) LongFunction<R>
+
+Represents a function that accepts a long-valued argument and produces a result.
+
+27) LongPredicate
+
+Represents a predicate (Boolean-valued function) of one long-valued argument.
+
+28) LongSupplier
+
+Represents a supplier of long-valued results.
+
+29) LongToDoubleFunction
+
+Represents a function that accepts a long-valued argument and produces a double-valued result.
+
+30) LongToIntFunction
+
+Represents a function that accepts a long-valued argument and produces an int-valued result.
+
+31) LongUnaryOperator
+
+Represents an operation on a single long-valued operand that produces a long-valued result.
+
+32) ObjDoubleConsumer<T>
+
+Represents an operation that accepts an object-valued and a double-valued argument, and returns no result.
+
+33) ObjIntConsumer<T>
+
+Represents an operation that accepts an object-valued and an int-valued argument, and returns no result.
+
+34) ObjLongConsumer<T>
+
+Represents an operation that accepts an object-valued and a long-valued argument, and returns no result.
+
+35) Predicate<T>
+
+Represents a predicate (Boolean-valued function) of one argument.
+
+36) Supplier<T>
+
+Represents a supplier of results.
+
+37) ToDoubleBiFunction<T,U>
+
+Represents a function that accepts two arguments and produces a double-valued result.
+
+38) ToDoubleFunction<T>
+
+Represents a function that produces a double-valued result.
+
+39) ToIntBiFunction<T,U>
+
+Represents a function that accepts two arguments and produces an int-valued result.
+
+40) ToIntFunction<T>
+
+Represents a function that produces an int-valued result.
+
+41) ToLongBiFunction<T,U>
+
+Represents a function that accepts two arguments and produces a long-valued result.
+
+42) ToLongFunction<T>
+
+Represents a function that produces a long-valued result.
+
+43) UnaryOperator<T>
+
+Represents an operation on a single operand that produces a result of the same type as its operand.

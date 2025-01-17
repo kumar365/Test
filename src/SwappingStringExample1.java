@@ -1,5 +1,5 @@
 
-// Java program to swap pair of characters of a string
+// Java program to swap pair of characters of a string using arrays
 public class SwappingStringExample1 {
 	// Function to swap pair of characters of a string
 	public static String swapPair(String str) {

@@ -11,13 +11,26 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class Java8_Collectors {
+public class Java8_Streams_Collectors {
 	public static void main(String[] args) {
 		List<Employee> employees = Arrays.asList(new Employee(1, 1000, "Chandra Shekhar", 6000),
 				new Employee(1, 1000, "Rajesh", 8000), new Employee(2, 1004, "Rahul", 9000),
 				new Employee(3, 1005, "Rahul", 2000), new Employee(4, 1001, "Suresh", 12000),
 				new Employee(5, 1004, "Rajesh", 10000), new Employee(6, 1006, "Rahul", 5000),
 				new Employee(7, 1004, "Santosh", 8500));
+		// Employee with highest salary
+		Optional<Employee> emp1 = employees.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed())
+				.findFirst();
+		System.out.println("Employee with highest salary:: " + emp1.get());
+		// Employee with second highest salary
+		Optional<Employee> emp2 = employees.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed())
+				.skip(1).findFirst();
+		System.out.println("Employee with second highest salary:: " + emp2.get());
+
+		// Employee with 5th highest salary
+		Optional<Employee> emp5 = employees.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed())
+				.skip(4).findFirst();
+		System.out.println("Employee with 5th highest salary:: " + emp5.get());
 
 		// Using Collectors summingInt() method to sum all Employee salaries
 		int total = employees.stream().collect(Collectors.summingInt(Employee::getSalary));
@@ -80,14 +93,15 @@ public class Java8_Collectors {
 				.forEach(e -> System.out.println("Name::" + e.getKey() + " count::" + e.getValue()));
 
 		// distinct employees
-		List<?> distinctEmployees = employees.stream().filter(distinctByKey(Employee::getName))
-				.collect(Collectors.toList());
+		Set<String> set = new HashSet<>(employees.size());
+		List<?> distinctEmployees = employees.stream().filter(e -> set.add(e.getName())).collect(Collectors.toList());
 		System.out.println("distinct employees::" + distinctEmployees);
 
 		// distinct employees
-		Set<String> set = new HashSet<>(employees.size());
-		List<?> distinctEmployees1 = employees.stream().filter(e -> set.add(e.getName())).collect(Collectors.toList());
+		List<?> distinctEmployees1 = employees.stream().filter(distinctByKey(Employee::getName))
+				.collect(Collectors.toList());
 		System.out.println("distinct employees::" + distinctEmployees1);
+
 	}
 
 	public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {

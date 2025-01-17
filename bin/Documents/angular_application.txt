@@ -1,0 +1,181 @@
+Angular
+=======
+Setting up the local environment and workspace
+Prerequisites:
+--------------
+1) JavaScript
+2) HTML
+3) CSS
+
+To install Angular on your local system, you need the following:
+1) Node.js
+Command to check version of Node.js
+> node -v
+
+2) npm package manager
+  1) Angular applications depend on npm packages.
+  2) To check that you have the npm client installed, run npm -v in a terminal window.
+> npm -v
+
+Install TypeScript:
+> npm install -g typescript
+> tsc -v
+
+Install the Angular CLI:
+> npm install -g @angular/cli
+
+Chekck angular cli version
+> ng version or > ng --version
+
+On Windows client computers, the execution of PowerShell scripts is disabled by default.
+To allow the execution of PowerShell scripts, which is needed for npm global binaries, you must set the following
+
+> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+Create a workspace and initial application:
+-------------------------------------------
+
+1) To create a new workspace and initial starter app:
+   Run the CLI command ng new and provide the name my-app
+> ng new project_name
+it will ask routing y/n: press y
+
+> ng new my-app
+    ex: D:\Angular_workspace>ng new my-app
+		D:\Angular_workspace> git config --global user.email "krvspkumar@gmail.com"
+		D:\Angular_workspace> git config --global user.name "krvspkumar"
+> cd my-app
+> ng serve
+> ng serve --open
+> ng serve --port 4201   
+
+http://localhost:4200/
+
+
+Building blocks of angular:
+1) Use Angular "directives" to show and hide elements and display lists of data.
+2) Create Angular "components" to display details and show.
+3) Use one-way data binding for read-only data.
+4) Add editable fields to update a model with two-way data binding.
+5) Bind component methods to user events, like keystrokes and clicks.
+6) Enable users to select a element from a list and edit that element in the details view.
+7) Format data with pipes.
+8) Create a shared service to assemble the elements.
+9) Use routing to navigate among different views and their components.
+=================================================================================
+
+Setting Up a Project:
+--------------------------------------------------------------
+To install Angular on your local system, you need the following:
+1) Node.js     (install only once)
+Command to check version of Node.js
+> node -v
+
+2) npm package manager  (the node package manager)  (install only once)
+  1) Angular applications depend on npm packages.
+  2) To check that you have the npm client installed, run npm -v in a terminal window.
+> npm -v
+
+Install the Angular CLI:
+> npm install -g @angular/cli
+Install the Angular CLI globally:     (install only once)
+> npm install -g @angular/cli
+--------------------------------------------------------------
+Create workspace:
+> ng new [PROJECT NAME]
+
+Run the application:
+> cd [PROJECT NAME]
+
+Angular Material:
+> ng add @angular/material
+
+> ng serve  (or) > ng serve --open  (or)  > ng serve --port 4201
+--------------------------------------------------------------
+
+Existing application:
+-------------------------------------------------------------- 
+1) > npm install
+2) > ng serve
+--------------------------------------------------------------
+
+
+> ng g environments
+
+
+Building the project:
+Run ng build to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a production build.
+Local build:
+> ng build
+
+Prod build:           
+> ng build -prod
+
+======================================
+1) Create a new Angular app.
+Create or navigate to the directory into which you want to create your Angular app.
+Run this command to create your new Angular app.
+> npm init @angular myApp (or)  npm init @angular angular_hms
+Ex:
+D:\Angular_workspace>npm init @angular myApp
+
+2)> cd myApp (or)  cd angular_hms
+
+3) Run this command to build your new app
+> npm start
+======================================
+add below code on app.component.html file.
+<router-outlet></router-outlet>
+
+Make changes on app.routing.module.ts file.
+
+> ng g environments
+
+> ng add @angular/material
+
+> npm install bootstrap
+
+> npm cache clear --force
+
+Add NGX Image Cropper Package:
+Once you created a new angular app and entered into the project further, you have to install and add the image cropper plugin into the angular app:
+> npm install ngx-image-cropper
+
+
+#to update angular
+npm uninstall @angular-devkit/build-angular
+npm install --save-dev @angular-devkit/build-angular
+
+		
+  ng update @angular/core@13 @angular/cli@13
+  
+  
+  ng generate class user
+  
+  export class User {
+    id: string;
+    name: string;
+    email: string;
+}
+
+// npm install steps for fontawesome
+npm install @fortawesome/fontawesome-svg-core
+npm install @fortawesome/free-brands-svg-icons
+npm install @fortawesome/free-regular-svg-icons
+npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/angular-fontawesome
+
+
+//ng add
+ng add @fortawesome/angular-fontawesome
+ng add  @fortawesome/fontawesome-svg-core
+ng add  @fortawesome/free-brands-svg-icons
+ng add  @fortawesome/free-regular-svg-icons
+ng add  @fortawesome/free-solid-svg-icons
+
+
+#generate model medicine inside model folder
+ng g cl model/medicine
+
+
+

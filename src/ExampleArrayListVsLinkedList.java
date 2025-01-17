@@ -98,10 +98,14 @@ public class ExampleArrayListVsLinkedList {
 		// Setting the ListIterator at a specified position
 		ListIterator<String> listIterator = linkedList.listIterator(2);
 
-		// Iterating through the created list from the position
+		// Iterating through the created list from the forward direction
 		System.out.println("The list is as follows:");
 		while (listIterator.hasNext()) {
 			System.out.println(listIterator.next());
+		}
+		// Iterating through the created list from the backward direction 
+		while (listIterator.hasPrevious()) {
+			System.out.println(listIterator.previous());
 		}
 
 		// Clearing the list

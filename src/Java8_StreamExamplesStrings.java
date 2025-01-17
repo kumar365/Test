@@ -49,6 +49,7 @@ public class Java8_StreamExamplesStrings {
 	}
 
 	public static void main(String args[]) {
+
 		firstNonRepeatedCharacter();
 		firstRepeatedCharacter();
 		concatStreams();
@@ -58,6 +59,7 @@ public class Java8_StreamExamplesStrings {
 		duplicateWordCountInList();
 		charCountInString();
 		sortByLength();
+
 	}
 
 	public static void firstNonRepeatedCharacter() {
@@ -89,6 +91,9 @@ public class Java8_StreamExamplesStrings {
 		List<String> list1 = Arrays.asList("Java", "8");
 		List<String> list2 = Arrays.asList("explained", "through", "programs");
 		Stream.concat(list1.stream(), list2.stream()).forEach(str -> System.out.print(str + " "));
+		System.out.println();
+		List<String> concatList = Stream.of(list1, list2).flatMap(List::stream).collect(Collectors.toList());
+		System.out.println("concatList:: " + concatList);
 		System.out.println();
 		ArrayList<String> l1 = new ArrayList<String>();
 		l1.add("Java");
@@ -130,17 +135,21 @@ public class Java8_StreamExamplesStrings {
 
 	// program to print the count of each character in a String
 	public static void charCountInString() {
+		System.out.println("charCountInString");
 		System.out.println("each character Count In String:");
-		String sting = "string data to count each character";
-		Map<String, Long> map = Arrays.stream(sting.split("")).map(String::toLowerCase)
+		String string = "string data to count each character";
+		Map<String, Long> map = Arrays.stream(string.split("")).map(String::toLowerCase)
 				.collect(Collectors.groupingBy(str -> str, LinkedHashMap::new, Collectors.counting()));
+		System.out.println("Word count in string");
 		System.out.println(map);
-		Map<Object, Long> map1 = sting.chars().mapToObj(c -> Character.toLowerCase(Character.valueOf((char) c)))
+		Map<Object, Long> map1 = string.chars().mapToObj(c -> Character.toLowerCase(Character.valueOf((char) c)))
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
+		System.out.println("char count in string");
 		System.out.println(map1);
 	}
 
-	// convert a List of objects into a Map by considering duplicated keys and store them in sorted order
+	// convert a List of objects into a Map by considering duplicated keys and store
+	// them in sorted order
 	public static void mapWithDuplicatedKeys() {
 		System.out.println("map With Duplicated Keys:");
 		List<Notes> noteLst = new ArrayList<>();

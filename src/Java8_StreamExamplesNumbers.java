@@ -23,11 +23,11 @@ public class Java8_StreamExamplesNumbers {
 		findTheTotalNumberOfElements();
 		findMinElement();
 		findMaxElement();
-		
+
 		int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 		findMinElementAsInt(arr);
 		findMaxElementAsInt(arr);
-		
+
 		sortValuesInList();
 		sortDescending();
 		cubeOnList();
@@ -74,8 +74,10 @@ public class Java8_StreamExamplesNumbers {
 	public static void removeDuplicateElementsInList() {
 		System.out.println("Duplicate Elements In List removed:");
 		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
-		Set<Integer> set = new HashSet<Integer>();
-		list.stream().filter(n -> set.add(n)).forEach(n -> System.out.print(n + " "));
+//		Set<Integer> set = new HashSet<Integer>();
+//		list.stream().filter(n -> set.add(n)).forEach(n -> System.out.print(n + " "));
+//		System.out.println();
+		list.stream().distinct().forEach(n -> System.out.print(n + " "));
 		System.out.println();
 	}
 
@@ -126,12 +128,14 @@ public class Java8_StreamExamplesNumbers {
 	// find the Maximum element in an array
 	public static int findMinElementAsInt(int[] arr) {
 		System.out.println("Find min Element:");
+		// return Arrays.stream(arr).reduce(Integer::min).getAsInt();
 		return Arrays.stream(arr).min().getAsInt();
 	}
 
 	// find the Maximum element in an array
 	public static int findMaxElementAsInt(int[] arr) {
 		System.out.println("Find max Element:");
+		// return Arrays.stream(arr).reduce(Integer::max).getAsInt();
 		return Arrays.stream(arr).max().getAsInt();
 	}
 
@@ -189,7 +193,13 @@ public class Java8_StreamExamplesNumbers {
 
 		// Concatenated the list1 and list2 by converting them into Stream
 		Stream.concat(list1.stream(), list2.stream()).sorted().forEach(str -> System.out.print(str + " "));
+		System.out.println();
 
+		// Concatenated the list1 and list2 using flatMap
+		Stream.of(list1, list2).flatMap(List::stream).sorted().forEach(str -> System.out.print(str + " "));
+		System.out.println();
+
+		// Normal method
 		ArrayList<Integer> l1 = new ArrayList<Integer>();
 		l1.add(1);
 		l1.add(2);
@@ -252,7 +262,7 @@ public class Java8_StreamExamplesNumbers {
 	}
 
 	public static void findSecondLargestNumberInArray() {
-		System.out.println("findSecondLargestNumberInArray:");
+		System.out.println("Find Second Largest Number In Array:");
 		// random numbers
 		int[] numArray = { 5, 9, 11, 2, 8, 21, 1 };
 
@@ -260,12 +270,12 @@ public class Java8_StreamExamplesNumbers {
 		System.out.println("Numbers in an Arrays : " + Arrays.toString(numArray));
 
 		// sort in descending-order and get 2nd largest element
-		int secondLargestNumber = Arrays.stream(numArray).boxed().sorted(Comparator.reverseOrder()).limit(2).skip(1)
+		int secondLargestNumber = Arrays.stream(numArray).boxed().sorted(Collections.reverseOrder()).limit(2).skip(1)
 				.findFirst().get();
 
 		// print sum to console
 		System.out.println("\nSecond largest number in an Arrays is - " + secondLargestNumber);
-
+		System.out.println();
 	}
 
 	public static void findSecondLargestNumberInList() {

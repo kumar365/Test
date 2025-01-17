@@ -39,6 +39,7 @@ class ExampleLinkedListReverse {
 		}
 	}
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		ExampleLinkedListReverse list = new ExampleLinkedListReverse();
 		list.head = new Node(85);
@@ -55,4 +56,3 @@ class ExampleLinkedListReverse {
 	}
 }
 
-//This code has been contributed by Mayank Jaiswal

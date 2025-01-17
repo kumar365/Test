@@ -1,21 +1,21 @@
 // Java program to swap pair of characters of a string
 public class SwappingStringExample2 {
 
-	// Function to swap pair of characters of a string
+	// Function to swap pair of characters of a string using StringBuffer
 	public static String swapPair(String str) {
 
 		if (str == null || str.isEmpty()) { // Checking if string is null or empty then return str
 			return str;
 		}
 
-		int len = str.length();
-		System.out.println("String length::" + len + " Order (" + len / 2 + ")");// O(n/2)
+		int stringLength = str.length();
+		System.out.println("String length::" + stringLength + " Order (" + stringLength / 2 + ")");// O(n/2)
 		// Creating a StringBuffer object with length of the string passed
-		StringBuffer sb = new StringBuffer(len);
+		StringBuffer sb = new StringBuffer(stringLength);
 
 		// Traverse the string and append the character in the StringBuffer object in
 		// reverse order
-		for (int i = 0; i < len - 1; i += 2) {
+		for (int i = 0; i < stringLength - 1; i += 2) {
 			System.out.println("i::" + i);
 			sb.append(str.charAt(i + 1));
 			sb.append(str.charAt(i));
@@ -23,8 +23,8 @@ public class SwappingStringExample2 {
 
 		// Checking if the string has odd number of characters then append the last
 		// character into StringBuffer object
-		if (len % 2 != 0) {
-			sb.append(str.charAt(len - 1));
+		if (stringLength % 2 != 0) {
+			sb.append(str.charAt(stringLength - 1));
 		}
 
 		// Converting the StringBuffer into the string and return

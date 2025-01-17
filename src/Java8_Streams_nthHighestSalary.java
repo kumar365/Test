@@ -29,14 +29,9 @@ public class Java8_Streams_nthHighestSalary {
 	}
 
 	public static Map.Entry<String, Integer> getNthHighestSalary(Map<String, Integer> employeeSalaries, int n) {
-
+		// Get the nth element from the list
 		return employeeSalaries.entrySet().stream() // Use Stream API to sort the entries by salary in descending order
-				.sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toList()).get(n - 1);// Get
-																														// the
-																														// nth
-																														// element
-																														// from
-																														// the
-																														// list
+				.sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toList()).get(n - 1);
+
 	}
 }

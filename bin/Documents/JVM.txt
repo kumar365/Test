@@ -1,0 +1,34 @@
+What is JVM? Why is Java called the "Platform Independent Programming Language?
+
+A Java virtual machine (JVM) is a process virtual machine that can execute Java bytecode.
+
+Each Java source file is compiled into a bytecode file, which is executed by the JVM. 
+Java was designed to allow application programs to be built that could be run on any platform, without having to be rewritten 
+or recompiled by the programmer for each separate platform.
+
+A Java virtual machine makes this possible because it is aware of the specific instruction lengths and other particularities of the underlying hardware platform.
+
+What are the two types of Exceptions in Java? Which are the differences between them?
+
+Java has two types of exceptions: checked exceptions and unchecked exceptions.
+
+Unchecked exceptions do not need to be declared in a method or a constructor's throws clause if they can be thrown by the execution of the method or the constructor,
+ and propagate outside the method or constructor boundary.
+
+On the other hand, checked exceptions must be declared in a method or a constructor's throws clause.
+
+
+Comparable and Comparator both are interfaces and can be used to sort collection elements.
+Comparable:	
+1) Comparable provides a single sorting sequence. In other words, we can sort the collection on the basis of a single element such as id, name, and price.	
+2) Comparable affects the original class, i.e., the actual class is modified.	
+3) Comparable provides compareTo() method to sort elements.	
+4) Comparable is present in java.lang package.	
+5) We can sort the list elements of Comparable type by Collections.sort(List) method.	
+
+Comparator:
+1) The Comparator provides multiple sorting sequences. In other words, we can sort the collection on the basis of multiple elements such as id, name, and price etc.
+2) Comparator doesn't affect the original class, i.e., the actual class is not modified.
+3) Comparator provides compare() method to sort elements.
+4) A Comparator is present in the java.util package.
+5) We can sort the list elements of Comparator type by Collections.sort(List, Comparator) method.
