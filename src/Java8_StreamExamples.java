@@ -115,10 +115,10 @@ public class Java8_StreamExamples {
 		// sum integers in a List using reduce() operator.
 		List<Integer> numberList = Arrays.asList(5, 3, 7, 10);
 		int sum = numberList.stream().reduce(0, (a, b) -> a + b);
-		System.out.println("sum integers in a List using reduce():: " + sum); // prints 25
+		System.out.println("sum integers in a List using reduce():: " + sum); // prints 25 (0+5, 5+3, 8+7, 15+10)
 
 		// Multiplication of integers in a List using reduce() operator.
-		int multiplayResult = numberList.stream().reduce(1, (a, b) -> a * b); // 1*5 , 3*5, 7 * 15, 10* 105
+		int multiplayResult = numberList.stream().reduce(1, (a, b) -> a * b); // 1*5 , 5*3, 15 * 7, 105* 10
 		System.out.println("multiplay integers in a List using reduce():: " + multiplayResult); // prints 1050
 
 		System.out.println("print list using streams::");

@@ -25,8 +25,8 @@ public class Java8_OptionalExamples {
 		System.out.println(value.isPresent());
 
 		// words[5] = "Pradeep";
-		Optional<String> checkNull = Optional.ofNullable(words[5]);
-		if (checkNull.isPresent()) {
+		Optional<String> stringOptional = Optional.ofNullable(words[5]);
+		if (stringOptional.isPresent()) {
 			System.out.print(words[5].toLowerCase());
 		} else
 			System.out.println("word is null");

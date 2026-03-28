@@ -44,6 +44,9 @@ public class Java8_StreamExamplesNumbers {
 		findingSumOfSmallestTwoNumbersInList();
 		findFirstAndLastElementInArrayList();
 		calculateStatisticsOfList();
+		System.out.println("Print 3 rd and 4th heigst numbres in list::");
+		Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).sorted(Collections.reverseOrder()).limit(4).skip(2)
+				.forEach(System.out::println);
 	}
 
 	public static void printArray(List<Integer> list) {

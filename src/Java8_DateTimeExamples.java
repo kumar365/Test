@@ -20,6 +20,11 @@ public class Java8_DateTimeExamples {
 		LocalDate nextWednesday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.WEDNESDAY));
 		System.out.println("Next Wednesday on : " + nextWednesday);
 
+		// next occurring Wednesday using
+		LocalDate secondSunday = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), 1)
+				.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY)).with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
+		System.out.println("Second Sunday on : " + secondSunday);
+
 	}
 
 	public static void getDate() {
