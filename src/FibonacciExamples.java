@@ -26,7 +26,7 @@ class FibonacciExamples {
 
 	public static void fibonacci2(int n) {
 		System.out.println("From fibonacci2");
-		int array[] = new int[n];
+		int[] array= new int[n];
 		// The space used here is O(N)
 		array[0] = 0;
 		array[1] = 1;

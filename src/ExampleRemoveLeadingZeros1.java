@@ -9,15 +9,16 @@ public class ExampleRemoveLeadingZeros1 {
 		while (i < str.length() && str.charAt(i) == '0') {
 			i++;
 		}
+		return str.substring(i); // direct string approach
 
-		// Converting string into StringBuffer object as strings are immutable
-		StringBuffer sb = new StringBuffer(str);
-
-		// The StringBuffer replace function removes i characters from given index
-		sb.replace(0, i, "");// int startIndex, int endIndex, string to replace
-
-		// Returning string after removing zeros
-		return sb.toString();
+//		// Converting string into StringBuffer object as strings are immutable
+//		StringBuffer sb = new StringBuffer(str);
+//
+//		// The StringBuffer replace function removes i characters from given index
+//		sb.replace(0, i, "");// int startIndex, int endIndex, string to replace
+//
+//		// Returning string after removing zeros
+//		return sb.toString();
 	}
 
 	public static void main(String[] args) {
